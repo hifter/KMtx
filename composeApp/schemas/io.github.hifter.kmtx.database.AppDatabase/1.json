@@ -1,0 +1,61 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "6ef928fe5dce98573d497bfd4b3cd303",
+    "entities": [
+      {
+        "tableName": "string_kv",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`stringKey` TEXT NOT NULL, `stringValue` TEXT NOT NULL, PRIMARY KEY(`stringKey`))",
+        "fields": [
+          {
+            "fieldPath": "stringKey",
+            "columnName": "stringKey",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stringValue",
+            "columnName": "stringValue",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "stringKey"
+          ]
+        }
+      },
+      {
+        "tableName": "userid",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userIndex` INTEGER NOT NULL, `userid` TEXT NOT NULL, PRIMARY KEY(`userIndex`))",
+        "fields": [
+          {
+            "fieldPath": "userIndex",
+            "columnName": "userIndex",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userid",
+            "columnName": "userid",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "userIndex"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6ef928fe5dce98573d497bfd4b3cd303')"
+    ]
+  }
+}
