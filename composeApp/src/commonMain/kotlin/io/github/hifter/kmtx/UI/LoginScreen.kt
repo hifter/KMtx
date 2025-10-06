@@ -1,14 +1,8 @@
 package io.github.hifter.kmtx.UI
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBackIosNew
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -19,9 +13,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import io.github.aakira.napier.Napier
-import io.github.hifter.kmtx.module.AppStateModule
-import io.github.hifter.kmtx.module.PlatformInfoModule
-import io.github.hifter.kmtx.module.RepositoriesModule
+import io.github.hifter.kmtx.module.*
 import io.ktor.http.URLParserException
 import io.ktor.http.Url
 import kotlinx.coroutines.CoroutineScope
@@ -211,6 +203,7 @@ fun LoginScreen() {
         Column(
             modifier = Modifier
                 .fillMaxHeight()
+                .statusBarsPadding()
                     ,
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally

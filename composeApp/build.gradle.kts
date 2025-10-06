@@ -12,6 +12,7 @@ plugins {
     alias(libs.plugins.androidx.room)
 //    id("com.google.devtools.ksp")
     alias(libs.plugins.ksp)
+    alias { libs.plugins.serialization }
 }
 //room {
 //    schemaDirectory("$projectDir/schemas")
@@ -30,6 +31,7 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.androidx.navigation.compose)
             implementation(libs.sqlite.jdbc)
 //            implementation(libs.trixnity.bom)
 

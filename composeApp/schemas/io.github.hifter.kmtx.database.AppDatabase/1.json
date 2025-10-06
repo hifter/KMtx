@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "6ef928fe5dce98573d497bfd4b3cd303",
+    "identityHash": "c2a6d8b8e290208fde747d3cff340c62",
     "entities": [
       {
         "tableName": "string_kv",
@@ -50,12 +50,23 @@
           "columnNames": [
             "userIndex"
           ]
-        }
+        },
+        "indices": [
+          {
+            "name": "index_userid_userid",
+            "unique": true,
+            "columnNames": [
+              "userid"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_userid_userid` ON `${TABLE_NAME}` (`userid`)"
+          }
+        ]
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6ef928fe5dce98573d497bfd4b3cd303')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c2a6d8b8e290208fde747d3cff340c62')"
     ]
   }
 }

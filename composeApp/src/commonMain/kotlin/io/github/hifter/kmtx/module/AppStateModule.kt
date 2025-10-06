@@ -31,6 +31,7 @@ object AppStateModule {
     val appDatabase = getRoomDatabase()
 
     fun addUser(userid: String, client: MatrixClient? = null) {
+        Napier.d(tag = TAG, message = "addUser->$userid")
         if (userClientStateList.value.any { it.userId == userid })
             switchUser(userid)
         else {
@@ -44,12 +45,14 @@ object AppStateModule {
         }
     }
     fun deleteUser(userid: String) {
+        Napier.d(tag = TAG, message = "deleteUser->$userid")
         scope.launch(Dispatchers.IO) {
             appDatabase.useridKvDao().deleteAndReorder(userid)
             clientCache.remove(userid)
         }
     }
     fun switchUser(userid: String) {
+        Napier.d(tag = TAG, message = "switchUser->$userid")
         scope.launch(Dispatchers.IO) {
             appDatabase.stringKvDao().setValue(StringKvKeys.curUserid, userid)
         }
