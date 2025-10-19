@@ -14,6 +14,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import io.github.aakira.napier.Napier
 import io.github.hifter.kmtx.module.AppStateModule
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import sh.calvin.reorderable.ReorderableItem
 import sh.calvin.reorderable.rememberReorderableLazyListState
 
@@ -72,7 +73,7 @@ fun UserLoadList() {
                             Text(
                                 modifier = Modifier
                                     .weight(0.6f),
-                                text = item.userId,
+                                text = item.userId + "66666666666",
                                 maxLines = 1,
                                 overflow = TextOverflow.Ellipsis
                             )
@@ -85,7 +86,6 @@ fun UserLoadList() {
                                         tint = Color.Green
                                     )
                                 }
-
                                 item.client != null && !item.isLoaded -> {
                                     CircularProgressIndicator(
                                         modifier = Modifier.size(itemContentSize),
@@ -144,3 +144,28 @@ fun UserLoadList() {
         }
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun UserLoadListScreenPreview() {
+    // 3. 在预览函数中，我们需要模拟 AppStateModule 的行为
+    // 因为在预览模式下，真实的 AppStateModule 可能无法工作。
+    // 我们创建一个假的 StateFlow 来提供数据。
+    //
+    // 注意：您需要将 UserClientState 替换为您项目中真实的类。
+    // 如果 UserClientState 不在当前模块中，您需要将其导入。
+    //
+    // val fakeUserList = listOf(
+    //     UserClientState(userId = "user_001_long_name_test", client = Any(), isLoaded = true),
+    //     UserClientState(userId = "user_002", client = Any(), isLoaded = false),
+    //     UserClientState(userId = "user_003", client = null, isLoaded = true),
+    //     UserClientState(userId = "user_004", client = null, isLoaded = false)
+    // )
+    // AppStateModule.userClientStateList = MutableStateFlow(fakeUserList)
+
+
+    // 由于我无法访问 UserClientState 的定义，我将直接调用 UserLoadListScreen。
+    // 如果预览因 AppStateModule 而崩溃，请取消注释上面的代码，
+    // 并将 UserClientState 替换为您的实际数据类。
+    UserLoadListScreen()
+}如何使用和解决潜在问题1.导入 @Pr

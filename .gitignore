@@ -1,3 +1,8 @@
+# Node.js 依赖目录
+node_modules/
+**/node_modules/
+
+# 原有的其他配置
 *.iml
 .kotlin
 .gradle
@@ -12,8 +17,8 @@ captures
 .cxx
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcodeproj/project.xcworkspace/
+!*.xcodeproj/xcshareddata
+!*.xcodeproj/project.xcworkspace
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 /composeApp/schemas/

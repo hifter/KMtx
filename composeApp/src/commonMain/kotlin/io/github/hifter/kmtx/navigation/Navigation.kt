@@ -22,6 +22,8 @@ sealed class Route {
     object TimelineScreen: Route()
     @Serializable
     object MoreScreen: Route()
+    @Serializable
+    object LoadScreen: Route()
 }
 
 // 导航控制器接口
